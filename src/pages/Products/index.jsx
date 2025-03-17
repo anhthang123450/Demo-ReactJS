@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductList from "../../components/ProductList/index.jsx";
 import Loading from "../../components/Loading/index.jsx";
 
 const Products = () => {
+    const [loading, setLoading] = useState(false);
+    const [products, setProducts] = useState([]);
+    console.log(products.length === 0);
     return (
         <div className="page-container">
             <h1 className="page-title">Danh Sách Sản Phẩm</h1>
-            <ProductList />
 
-            {/* Loading nhé */}
-            {/* <Loading /> */}
+            {loading && <Loading />}
 
-            {/* Message hiển thị khi danh sách trống nhé AE */}
-            <p className="empty-message">Không có sản phẩm nào.</p>
+            <ProductList setLoading={setLoading} setProducts={setProducts} />
+
+            {products.length === 0 && (
+                <p className="empty-message">Không có sản phẩm nào.</p>
+            )}
         </div>
     );
 };
-
 export default Products;
