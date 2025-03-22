@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewProduct from "./pages/NewProduct";
 import Products from "./pages/Products";
 import Search from "./pages/Search";
-import "./App.css";
 import Home from "./pages/Home";
+import "./App.css";
 
 function App() {
     return (
